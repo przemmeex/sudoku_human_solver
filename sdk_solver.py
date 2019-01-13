@@ -2,7 +2,7 @@ import re
 import copy
 from time import time
 
-ALL_STEPS_PRINT = False
+ALL_STEPS_PRINT = True
 
 
 class SdkGame(object):
@@ -16,7 +16,8 @@ class SdkGame(object):
 
     def create_board(self):
         """
-        build data structure for game status recording - nested list and dictionary(ches board like coordinates for key)
+        build data structure for game status recording - nested list and
+        dictionary(ches board like coordinates for key)
         :return:
         """
 
@@ -35,12 +36,7 @@ class SdkGame(object):
             for nbr in range(1, 10):
                 if not self.possible_numbers.get("{}{}".format(letter, nbr),
                                                  False):
-                    self.possible_numbers["{}{}".format(letter, nbr)] = {1, 2,
-                                                                         3, 4,
-                                                                         5, 6,
-                                                                         7, 8,
-                                                                         9}
-
+                    self.possible_numbers["{}{}".format(letter, nbr)] = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
     def check_squares(self):
         """
@@ -342,6 +338,9 @@ input_numbers = (
 input_coordinates = (
 "c1", "g1", "h1", "b2", "i2", "c3", "f3", "i3", "a4", "b4", "d4", "e4", "b6",
 "e6", "f6", "g6", "f7", "h7", "c8", "e8", "i8", "b9", "c9", "d9", "i9")
+
+input_numbers = (9,1,3,4,8,3,9,1,2,1,7,3,6,2,6,5,8,8,7,3,5,4,8,1,3,2,2,6)
+input_coordinates = ("b1","c1","h1","a2","b2","c2","g2","h2","a3","e3","c4","e4","g4","h4","a5","f5","i5","c6","e6","i6","d7","f7","h7","b8","d8","i8","f9","h9")
 
 game_1 = SdkGame(input_numbers, input_coordinates)
 game_1.create_board()
